@@ -27,6 +27,9 @@ macro    (procrunInit
         "${PROCRUN_HEADERS}"
         "${PROCRUN_SOURCES}")
 
+    set(PROCRUN_QT_MODS Core Widgets)
+    set(CMAKE_AUTOMOC ON)
+
     pileSetCommon(
         "${PROCRUN_INIT_NAME}"
         "0;0;1;d"
