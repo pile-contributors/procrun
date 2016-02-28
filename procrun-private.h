@@ -11,6 +11,7 @@
 #define GUARD_PROCRUN_PRIVATE_H_INCLUDE
 
 #include <procrun/procrun-config.h>
+#include <applib/applib-util.h>
 
 #if 0
 #    define PROCRUN_DEBUGM printf
@@ -33,5 +34,22 @@
 
 static inline void black_hole (...)
 {}
+
+#define SAVE_VALUE(val) stg.setValue (QSTRINGIFY(val), val)
+#define LOAD_STRING(val) val = stg.value (QSTRINGIFY(val)).toString ()
+#define LOAD_STRLIST(val) val = stg.value (QSTRINGIFY(val)).toStringList ()
+
+
+#ifdef PROCRUN_DEBUG
+#define DBG_ASSERT(a) APPLIB_ASSERT(a)
+#else // PROCRUN_DEBUG
+#define DBG_ASSERT(a)
+#endif // PROCRUN_DEBUG
+
+#ifdef PROCRUN_DEBUG
+#define DBG_FAILPOINT(a) APPLIB_FAILPOINT(a)
+#else // PROCRUN_DEBUG
+#define DBG_FAILPOINT(a)
+#endif // PROCRUN_DEBUG
 
 #endif // GUARD_PROCRUN_PRIVATE_H_INCLUDE

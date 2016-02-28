@@ -1,6 +1,6 @@
 
 # enable/disable cmake debug messages related to this pile
-set (PROCRUN_DEBUG_MSG ON)
+set (PROCRUN_DEBUG_MSG OFF)
 
 # make sure support code is present; no harm
 # in including it twice; the user, however, should have used
@@ -16,11 +16,19 @@ macro    (procrunInit
         set(PROCRUN_INIT_NAME "ProcRun")
     endif ()
 
-    # compose the list of headers and sources
+    # Compose the list of headers and sources.
+
     set(PROCRUN_HEADERS
-        "procrun.h")
+        "procrunmodel.h"
+        "procrun.h"
+        "procrunitem.h"
+        "procrungroup.h")
+
     set(PROCRUN_SOURCES
-        "procrun.cc")
+        "procrunmodel.cc"
+        "procrun.cc"
+        "procrunitem.cc"
+        "procrungroup.cc")
 
     pileSetSources(
         "${PROCRUN_INIT_NAME}"
@@ -35,8 +43,8 @@ macro    (procrunInit
         "0;0;1;d"
         "ON"
         "${ref_cnt_use_mode}"
-        ""
-        "category1"
-        "tag1;tag2")
+        "AppLib"
+        "runtime"
+        "nogui;process")
 
 endmacro ()

@@ -30,6 +30,22 @@
  * for program completion or just start and return. Optionally,
  * the user may also pass some text to be written to program's
  * standard input channel.
+ *
+ * Here is an example invocation that uses both a callback and also
+ * blocks waiting for the program to complete.
+ *
+ * @code
+ * ProcRun * result = new ProcRun ();
+ * result->kb_ = MyClass::callback;
+ * result->user_data_ = this;
+ * result->setProgram ("ls");
+ * result->setArguments ("-a");
+ * result->setWorkingDirectory ("..");
+ * result->perform ();
+ * //...
+ * delete result;
+ * @endcode
+ *
  */
 
 /* ------------------------------------------------------------------------- */

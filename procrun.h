@@ -98,6 +98,7 @@ public:
     bool b_started_; /**< is the process already running? */
     QList<QProcess::ProcessError> errors_; /**< list of errors */
     QList<QProcess::ProcessState> states_; /**< list of states*/
+
     Kb kb_; /**< function to be called when the process ends */
     void * user_data_; /**< opaque user data */
 
