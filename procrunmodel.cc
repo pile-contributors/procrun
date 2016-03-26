@@ -27,7 +27,6 @@
 
 /* ------------------------------------------------------------------------- */
 /**
- * Constructor
  */
 ProcRunModel::ProcRunModel (QObject *parent) :
     QAbstractItemModel (parent),
@@ -40,7 +39,6 @@ ProcRunModel::ProcRunModel (QObject *parent) :
 
 /* ------------------------------------------------------------------------- */
 /**
- * Destructor.
  */
 ProcRunModel::~ProcRunModel()
 {

@@ -23,7 +23,6 @@
 
 /* ------------------------------------------------------------------------- */
 /**
- * Constructor
  */
 ProcRunItem::ProcRunItem (
         const QString & s_program, const QStringList & sl_args,
@@ -41,7 +40,6 @@ ProcRunItem::ProcRunItem (
 
 /* ------------------------------------------------------------------------- */
 /**
- * Destructor.
  */
 ProcRunItem::~ProcRunItem()
 {

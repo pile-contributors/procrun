@@ -20,7 +20,7 @@ QT_BEGIN_NAMESPACE
 class QSettings;
 QT_END_NAMESPACE
 
-//! A tree model for items.
+//! A tree model for groups of programs and programs.
 class PROCRUN_EXPORT ProcRunModel : public QAbstractItemModel {
 
 public:
@@ -32,6 +32,51 @@ public:
     //! Destructor.
     virtual ~ProcRunModel ();
 
+
+    //! Save this instance from settings.
+    bool
+    save (
+            QSettings & stg);
+
+    //! Load this instance from settings.
+    bool
+    load (
+            QSettings & stg);
+
+    //! The item was updated outside the model.
+    void
+    itemChanged (
+            ProcRunItemBase * item);
+
+    //! Insert the item into given group.
+    bool
+    insertItem (
+            ProcRunItemBase * item,
+            int index = -1,
+            ProcRunGroup * group = NULL);
+
+    //! Get the item associated with a model index.
+    ProcRunItemBase *
+    itemFromIndex (
+            const QModelIndex & index);
+
+    //! Get the index associated with an item.
+    QModelIndex
+    indexFromItem (
+            ProcRunItemBase * item);
+
+    //! Remove a particular item.
+    bool
+    removeItem (
+            ProcRunItemBase * item);
+
+    /* == == == == == == == == == == == == == == == == */
+    /** @name QAbstractItemModel
+    *  Reimplemented methods from QAbstractItemModel.
+    */
+    ///@{
+
+public:
 
     virtual QModelIndex
     index (
@@ -76,38 +121,6 @@ public:
     flags (
             const QModelIndex &index) const;
 
-    //! Save this instance from settings.
-    bool
-    save (
-            QSettings & stg);
-
-    //! Load this instance from settings.
-    bool
-    load (
-            QSettings & stg);
-
-    //! The item was updated outside the model.
-    void
-    itemChanged (
-            ProcRunItemBase * item);
-
-    //! Insert the item into given group.
-    bool
-    insertItem (
-            ProcRunItemBase * item,
-            int index = -1,
-            ProcRunGroup * group = NULL);
-
-    //! Get the item associated with a model index.
-    ProcRunItemBase *
-    itemFromIndex (
-            const QModelIndex & index);
-
-    //! Get the index associated with an item.
-    QModelIndex
-    indexFromItem (
-            ProcRunItemBase * item);
-
     //! Remove some rows.
     virtual bool
     removeRows (
@@ -115,10 +128,8 @@ public:
             int count,
             const QModelIndex &parent = QModelIndex());
 
-    //! Remove a particular item.
-    bool
-    removeItem (
-            ProcRunItemBase * item);
+    ///@}
+    /* == == == == == == == == == == == == == == == == */
 
 public:
 

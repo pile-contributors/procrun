@@ -28,17 +28,22 @@ class PROCRUN_EXPORT ProcRunItemBase {
     friend class ProcRunGroup;
 
 public:
+
+    //! The kinds of items we know of.
     enum Type {
         InvalidType = -1,
-        GroupType,
-        CommandType
+        GroupType, /**< the group of items */
+        CommandType /**< the actual item */
     };
 
-    ProcRunItemBase () : parent_ (NULL)
+    //! Constructor.
+    ProcRunItemBase () :
+        parent_ (NULL)
     {}
 
     //! Virtual destructor.
-    virtual ~ProcRunItemBase () {}
+    virtual ~ProcRunItemBase ()
+    {}
 
     //! The type of this entry.
     virtual Type
@@ -72,7 +77,6 @@ protected:
             ProcRunGroup * parent) {
         parent_ = parent;
     }
-
 
 private:
     ProcRunGroup * parent_;

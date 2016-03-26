@@ -97,7 +97,6 @@ public:
     remove (
             ProcRunItemBase * item);
 
-
     //! Save this instance from settings.
     virtual bool
     save (
@@ -113,6 +112,7 @@ public:
     loadMyself (
             QSettings & stg);
 
+    //! The name of this group.
     const QString
     name () const {
         return s_name_;

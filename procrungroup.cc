@@ -24,7 +24,6 @@
 
 /* ------------------------------------------------------------------------- */
 /**
- * Constructor
  */
 ProcRunGroup::ProcRunGroup (const QString & s_name) :
     ProcRunItemBase (),
@@ -38,7 +37,7 @@ ProcRunGroup::ProcRunGroup (const QString & s_name) :
 
 /* ------------------------------------------------------------------------- */
 /**
- * Destructor.
+ * Destructor will destroy all items that are part of this group.
  */
 ProcRunGroup::~ProcRunGroup()
 {
