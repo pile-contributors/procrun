@@ -12,6 +12,7 @@
 
 #include <procrun/procrun-config.h>
 #include <procrun/procrun.h>
+#include <procrun/procrundata.h>
 
 #include <QString>
 #include <QStringList>
@@ -84,7 +85,7 @@ private:
 
 
 //! A process, arguments, input and working directory.
-class PROCRUN_EXPORT ProcRunItem : public ProcRunItemBase {
+class PROCRUN_EXPORT ProcRunItem : public ProcRunItemBase, public ProcRunData {
 
 public:
 
@@ -126,13 +127,6 @@ public:
     virtual loadMyself (
             QSettings & stg);
 
-
-public:
-
-    QString s_program_; /**< the path and name of the program to run */
-    QStringList sl_arguments_; /**< command line arguments */
-    QString s_wrk_dir_; /**< working directory for the program */
-    QStringList sl_input_; /**< input to be passed to the program once it starts */
 
 };
 

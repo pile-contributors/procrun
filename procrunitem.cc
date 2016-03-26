@@ -28,10 +28,7 @@ ProcRunItem::ProcRunItem (
         const QString & s_program, const QStringList & sl_args,
         const QString & s_crt_path, const QStringList & sl_input) :
     ProcRunItemBase(),
-    s_program_(s_program),
-    sl_arguments_(sl_args),
-    s_wrk_dir_(s_crt_path),
-    sl_input_(sl_input)
+    ProcRunData(s_program, sl_args, s_crt_path, sl_input)
 {
     PROCRUN_TRACE_ENTRY;
     PROCRUN_TRACE_EXIT;

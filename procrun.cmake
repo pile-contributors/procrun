@@ -21,12 +21,14 @@ macro    (procrunInit
     set(PROCRUN_HEADERS
         "procrunmodel.h"
         "procrun.h"
+        "procrundata.h"
         "procrunitem.h"
         "procrungroup.h")
 
     set(PROCRUN_SOURCES
         "procrunmodel.cc"
         "procrun.cc"
+        "procrundata.cc"
         "procrunitem.cc"
         "procrungroup.cc")
 
