@@ -26,6 +26,25 @@ struct PROCRUN_EXPORT ProcRunData {
             const QString & s_crt_path = QString (),
             const QStringList & sl_input = QStringList());
 
+    //! Copy constructor.
+    ProcRunData (
+            const ProcRunData & other) :
+        s_program_(other.s_program_),
+        sl_arguments_(other.sl_arguments_),
+        s_wrk_dir_(other.s_wrk_dir_),
+        sl_input_(other.sl_input_)
+    {}
+
+    //! Assignment operator.
+    ProcRunData & operator= (
+            const ProcRunData & other) {
+        s_program_ = other.s_program_;
+        sl_arguments_ = other.sl_arguments_;
+        s_wrk_dir_ = other.s_wrk_dir_;
+        sl_input_ = other.sl_input_;
+        return *this;
+    }
+
     //! Set a QProcess instance with the data inside.
     void
     setupProcess (
